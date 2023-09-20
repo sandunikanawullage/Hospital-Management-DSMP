@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HMS | Patient</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/patient.css">
+</head>
+
+<body onload="loadPatient()">
+  <nav class="navbar navbar-expand-lg bg-primary bg-gradient navbar-dark sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">HMS</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="dashboard.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="patient.html">Patient</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="doctor.html">Doctor</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="appoinment.html">Appoinment</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="invoice.html">Invoice</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="inventory.html">Inventory</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="outer" id="pop-up">
+        <div class="inner">
+          <div class="top">
+            <div class="close" onclick="closePopup()">
+              &times;
+            </div>
+          </div>
+          <div class="middle">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name"> 
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age"> 
+          </div>
+          <div class="mb-3">
+            <label for="gender" class="form-label">Gender</label>
+            <input type="text" class="form-control" id="gender"> 
+          </div>
+          <div class="mb-3">
+            <label for="contact" class="form-label">Contact</label>
+            <input type="text" class="form-control" id="contact"> 
+          </div>
+          <div class="mb-3">
+            <label for="medicileHistory" class="form-label">Medicle History</label>
+            <input type="text" class="form-control" id="medicileHistory"> 
+          </div>
+          <div class="mb-3 ">
+            <input type="button" class="form-control btn btn-primary" id = "submit" value="Submit" onclick= "createPatient()"> 
+          </div>
+          <div class="mb-3 ">
+            <input type="button" class="form-control btn btn-primary" id = "edit" value="Edit" onclick="updateRecord()"> 
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="mb-3 mt-3">
+          <h3>Patients Information</h3>
+          <input type="button" class=" btn btn-primary" value="ADD NEW"  id= "addnew" onclick="openPopup()"> 
+        </div>
+      <div class="table-responsive">
+        <table class="table" >
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Contact</th>
+              <th scope="col">Medicle History</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+          </tbody>
+        </table>
+      </div>
+
+        <div class="col-3">
+          <input type="button"  class="btn btn-primary"value="Report"onclick="printData()">
+        </div>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/build/toastr.min.js"></script>
+    <script src="../scripts/firebase-config.js"></script>
+    <script src="../scripts/patient.js"></script>
+    
+</body>
+</html>

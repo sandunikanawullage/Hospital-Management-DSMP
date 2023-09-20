@@ -1,0 +1,43 @@
+.outer{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 20%;
+    left: 25%;
+}
+
+.inner{
+    width: 500px;
+    padding: 10px;
+    -webkit-box-shadow: 3px 9px 17px 5px rgba(0,0,0,0.75);
+-moz-box-shadow: 3px 9px 17px 5px rgba(0,0,0,0.75);
+box-shadow: 3px 9px 17px 5px rgba(0,0,0,0.75);
+background: aliceblue;
+}
+
+.top{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.close{
+    cursor: pointer;
+}
+
+#edit{
+    display: none;
+}
+
+#submit{
+    display: none;
+}
+
+@media screen and (max-width: 480px) {
+    .inner{
+        width: 325px;
+    }
+    .outer{
+        left: 8%;
+    }
+  }
